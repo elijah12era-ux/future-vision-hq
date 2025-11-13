@@ -24,10 +24,7 @@ const Hero = () => {
             </div>
 
             {/* Contact Info */}
-            <div className="flex items-center space-x-2 text-white/90 pt-4">
-              <Phone size={18} className="md:w-5 md:h-5" />
-              <span className="font-semibold text-sm md:text-base">+974 7734 7300</span>
-            </div>
+            
           </div>
 
           {/* Right Column - Stats/Features */}
