@@ -33,21 +33,21 @@ const Header = () => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <a href="#home" className="flex items-center space-x-2">
-            <div className="h-10 w-10 bg-gradient-to-br from-accent to-accent-cyan rounded-lg flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-xl">FI</span>
+            <div className="h-8 w-8 md:h-10 md:w-10 bg-gradient-to-br from-accent to-accent-cyan rounded-lg flex items-center justify-center">
+              <span className="text-primary-foreground font-bold text-base md:text-xl">FI</span>
             </div>
-            <span className="font-heading font-bold text-xl text-primary hidden sm:block">
+            <span className="font-heading font-bold text-base md:text-xl text-primary hidden sm:block">
               Futuristic International
             </span>
           </a>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
+          <nav className="hidden md:flex items-center space-x-4 lg:space-x-8">
             {navLinks.map((link) => (
               <a
                 key={link.name}
                 href={link.href}
-                className="text-foreground hover:text-accent transition-colors font-medium"
+                className="text-sm lg:text-base text-foreground hover:text-accent transition-colors font-medium"
               >
                 {link.name}
               </a>
@@ -57,7 +57,8 @@ const Header = () => {
           {/* CTA Button */}
           <div className="hidden md:block">
             <Button
-              className="button-gradient text-primary-foreground font-semibold hover:shadow-lg transition-all"
+              size="sm"
+              className="button-gradient text-primary-foreground text-sm font-semibold hover:shadow-lg transition-all lg:text-base"
               onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
             >
               Request a Quote
