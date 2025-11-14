@@ -29,8 +29,8 @@ const Index = () => {
           }
         >
           <img
-            src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=1600"
-            alt="Engineering Innovation"
+            src={new URL("@/assets/hvac-system.jpg", import.meta.url).href}
+            alt="HVAC Engineering Innovation"
             className="mx-auto rounded-2xl object-cover h-full w-full object-center"
           />
         </ContainerScroll>
