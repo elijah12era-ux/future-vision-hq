@@ -50,8 +50,8 @@ const Header = () => {
               </a>)}
           </nav>
 
-          {/* CTA Button */}
-          <div className="hidden md:block">
+          {/* CTA Button - Hidden on mobile and tablet, visible on desktop */}
+          <div className="hidden lg:block">
             <Button 
               size="sm"
               className="button-gradient text-primary-foreground font-semibold"

@@ -9,6 +9,7 @@ import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import { ContainerScroll } from "@/components/ui/container-scroll-animation";
 import { InteractiveHoverButton } from "@/components/ui/interactive-hover-button";
+import hvacImage from "@/assets/hvac-outdoor-units.png";
 
 const Index = () => {
   return (
@@ -29,8 +30,8 @@ const Index = () => {
           }
         >
           <img
-            src={new URL("@/assets/hvac-system.jpg", import.meta.url).href}
-            alt="HVAC Engineering Innovation"
+            src={hvacImage}
+            alt="HVAC Outdoor Units Installation"
             className="mx-auto rounded-2xl object-cover h-full w-full object-center"
           />
         </ContainerScroll>
