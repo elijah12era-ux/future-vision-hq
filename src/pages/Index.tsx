@@ -7,6 +7,8 @@ import Clients from "@/components/Clients";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import { ContainerScroll } from "@/components/ui/container-scroll-animation";
+import { InteractiveHoverButton } from "@/components/ui/interactive-hover-button";
 
 const Index = () => {
   return (
@@ -14,11 +16,35 @@ const Index = () => {
       <Header />
       <main>
         <Hero />
+        <ContainerScroll
+          titleComponent={
+            <>
+              <h2 className="text-4xl md:text-6xl font-heading font-bold text-foreground mb-4">
+                Experience Innovation
+              </h2>
+              <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
+                Discover how we transform complex engineering challenges into elegant solutions
+              </p>
+            </>
+          }
+        >
+          <img
+            src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=1600"
+            alt="Engineering Innovation"
+            className="mx-auto rounded-2xl object-cover h-full w-full object-center"
+          />
+        </ContainerScroll>
         <About />
         <Services />
         <Projects />
         <Clients />
         <WhyChooseUs />
+        <div className="flex justify-center py-16 bg-background">
+          <InteractiveHoverButton 
+            text="Request a Quote"
+            onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
+          />
+        </div>
         <Contact />
       </main>
       <Footer />
