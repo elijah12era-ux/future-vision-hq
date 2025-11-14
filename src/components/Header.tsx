@@ -52,7 +52,13 @@ const Header = () => {
 
           {/* CTA Button */}
           <div className="hidden md:block">
-            
+            <Button 
+              size="sm"
+              className="button-gradient text-primary-foreground font-semibold"
+              onClick={() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" })}
+            >
+              Request a Quote
+            </Button>
           </div>
 
           {/* Mobile Menu Button */}
