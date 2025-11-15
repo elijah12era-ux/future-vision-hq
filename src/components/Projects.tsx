@@ -1,5 +1,6 @@
 import { Card } from "@/components/ui/card";
 import alRayyanHealthcare from "@/assets/al-rayyan-healthcare.png";
+import industrialZoneSubstation from "@/assets/industrial-zone-substation.png";
 
 const Projects = () => {
   const projects = [
@@ -13,7 +14,7 @@ const Projects = () => {
       title: "Industrial Zone Substation",
       sector: "Industrial",
       description: "132kV electrical substation EPC project with full commissioning",
-      image: "https://share.google/images/BAbhE4JNKAUnlr6Q0",
+      image: industrialZoneSubstation,
     },
     {
       title: "Lusail Commercial Tower",
