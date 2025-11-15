@@ -2,6 +2,7 @@ import { Card } from "@/components/ui/card";
 import alRayyanHealthcare from "@/assets/al-rayyan-healthcare.png";
 import industrialZoneSubstation from "@/assets/industrial-zone-substation.png";
 import lusailCommercialTower from "@/assets/lusail-commercial-tower.png";
+import westBayFireProtection from "@/assets/west-bay-fire-protection.png";
 
 const Projects = () => {
   const projects = [
@@ -27,7 +28,7 @@ const Projects = () => {
       title: "West Bay Fire Protection",
       sector: "Commercial",
       description: "NFPA-compliant fire protection system for high-rise complex",
-      image: "https://share.google/images/ReQp10hoEKWhYx4nD",
+      image: westBayFireProtection,
     },
   ];
 
