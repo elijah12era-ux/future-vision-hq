@@ -6,25 +6,25 @@ const Projects = () => {
       title: "Al Rayyan Healthcare Facility",
       sector: "Healthcare",
       description: "Complete MEP systems installation for 200-bed medical center",
-      image: "https://images.unsplash.com/photo-1586773860418-d37222d8fce3?w=800&q=80",
+      image: "https://share.google/images/d9D0GAPqufTVbQhIs",
     },
     {
       title: "Industrial Zone Substation",
       sector: "Industrial",
       description: "132kV electrical substation EPC project with full commissioning",
-      image: "https://images.unsplash.com/photo-1581094271901-8022df4466f9?w=800&q=80",
+      image: "https://share.google/images/BAbhE4JNKAUnlr6Q0",
     },
     {
       title: "Lusail Commercial Tower",
       sector: "Commercial",
       description: "HVAC and BMS integration for 40-story office building",
-      image: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&q=80",
+      image: "https://share.google/images/cWFyfH2VA7tPgvwf9",
     },
     {
       title: "West Bay Fire Protection",
       sector: "Commercial",
       description: "NFPA-compliant fire protection system for high-rise complex",
-      image: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=800&q=80",
+      image: "https://share.google/images/ReQp10hoEKWhYx4nD",
     },
   ];
 
