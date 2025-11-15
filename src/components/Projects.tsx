@@ -1,6 +1,7 @@
 import { Card } from "@/components/ui/card";
 import alRayyanHealthcare from "@/assets/al-rayyan-healthcare.png";
 import industrialZoneSubstation from "@/assets/industrial-zone-substation.png";
+import lusailCommercialTower from "@/assets/lusail-commercial-tower.png";
 
 const Projects = () => {
   const projects = [
@@ -20,7 +21,7 @@ const Projects = () => {
       title: "Lusail Commercial Tower",
       sector: "Commercial",
       description: "HVAC and BMS integration for 40-story office building",
-      image: "https://share.google/images/cWFyfH2VA7tPgvwf9",
+      image: lusailCommercialTower,
     },
     {
       title: "West Bay Fire Protection",
