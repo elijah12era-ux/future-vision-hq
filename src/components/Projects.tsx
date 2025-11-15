@@ -1,4 +1,5 @@
 import { Card } from "@/components/ui/card";
+import alRayyanHealthcare from "@/assets/al-rayyan-healthcare.png";
 
 const Projects = () => {
   const projects = [
@@ -6,7 +7,7 @@ const Projects = () => {
       title: "Al Rayyan Healthcare Facility",
       sector: "Healthcare",
       description: "Complete MEP systems installation for 200-bed medical center",
-      image: "https://share.google/images/d9D0GAPqufTVbQhIs",
+      image: alRayyanHealthcare,
     },
     {
       title: "Industrial Zone Substation",
