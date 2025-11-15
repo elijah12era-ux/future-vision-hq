@@ -5,6 +5,17 @@ import { Textarea } from "@/components/ui/textarea";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { MapPin, Phone, Mail } from "lucide-react";
 import { toast } from "sonner";
+import { supabase } from "@/integrations/supabase/client";
+import { z } from "zod";
+
+const contactSchema = z.object({
+  name: z.string().trim().min(1, "Name is required").max(100, "Name must be less than 100 characters"),
+  company: z.string().trim().max(100, "Company name must be less than 100 characters").optional(),
+  email: z.string().trim().email("Invalid email address").max(255, "Email must be less than 255 characters"),
+  phone: z.string().trim().max(50, "Phone must be less than 50 characters").optional(),
+  projectType: z.string().min(1, "Project type is required"),
+  message: z.string().trim().min(1, "Message is required").max(1000, "Message must be less than 1000 characters"),
+});
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -15,11 +26,41 @@ const Contact = () => {
     projectType: "",
     message: "",
   });
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    toast.success("Thank you for your inquiry! We'll contact you shortly.");
-    setFormData({ name: "", company: "", email: "", phone: "", projectType: "", message: "" });
+    setIsSubmitting(true);
+
+    try {
+      // Validate form data
+      const validatedData = contactSchema.parse(formData);
+
+      // Submit to Supabase
+      const { error } = await supabase.from("contacts").insert({
+        name: validatedData.name,
+        company: validatedData.company || null,
+        email: validatedData.email,
+        phone: validatedData.phone || null,
+        project_type: validatedData.projectType,
+        message: validatedData.message,
+      });
+
+      if (error) throw error;
+
+      toast.success("Thank you for your inquiry! We'll contact you shortly.");
+      setFormData({ name: "", company: "", email: "", phone: "", projectType: "", message: "" });
+    } catch (error) {
+      if (error instanceof z.ZodError) {
+        const firstError = error.errors[0];
+        toast.error(firstError.message);
+      } else {
+        console.error("Error submitting contact form:", error);
+        toast.error("Failed to submit your inquiry. Please try again.");
+      }
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -125,8 +166,8 @@ const Contact = () => {
               />
             </div>
 
-            <Button type="submit" size="lg" className="w-full button-gradient text-primary-foreground font-bold">
-              Submit Request
+            <Button type="submit" size="lg" className="w-full button-gradient text-primary-foreground font-bold" disabled={isSubmitting}>
+              {isSubmitting ? "Submitting..." : "Submit Request"}
             </Button>
           </form>
 
