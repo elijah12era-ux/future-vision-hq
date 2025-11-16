@@ -13,9 +13,9 @@ const Projects = () => {
       image: alRayyanHealthcare,
     },
     {
-      title: "Industrial Zone Substation",
+      title: "Hamad Port",
       sector: "Industrial",
-      description: "132kV electrical substation EPC project with full commissioning",
+      description: "Sky light for the visitor's center",
       image: industrialZoneSubstation,
     },
     {
