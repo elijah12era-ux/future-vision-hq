@@ -1,26 +1,29 @@
 import { ShieldCheck, Workflow, MapPin, TrendingUp } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const WhyChooseUs = () => {
+  const { t, isRTL } = useLanguage();
+
   const reasons = [
     {
       icon: ShieldCheck,
-      title: "Safety & Standards",
-      description: "NFPA-trained staff and strict quality control on every project.",
+      title: t.whyChooseUs.licensed.title,
+      description: t.whyChooseUs.licensed.description,
     },
     {
       icon: Workflow,
-      title: "End-to-End Services",
-      description: "Single point of contact from design to commissioning and maintenance.",
+      title: t.whyChooseUs.experienced.title,
+      description: t.whyChooseUs.experienced.description,
     },
     {
       icon: MapPin,
-      title: "Local Expertise",
-      description: "Qatar-based delivery with deep understanding of regional requirements.",
+      title: t.whyChooseUs.quality.title,
+      description: t.whyChooseUs.quality.description,
     },
     {
       icon: TrendingUp,
-      title: "Value Engineering",
-      description: "Optimized efficiency and cost-effectiveness without compromising quality.",
+      title: t.whyChooseUs.onTime.title,
+      description: t.whyChooseUs.onTime.description,
     },
   ];
 
@@ -29,10 +32,10 @@ const WhyChooseUs = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 animate-in fade-in slide-in-from-bottom duration-700">
           <h2 className="font-heading font-bold text-4xl md:text-5xl text-primary mb-4">
-            Why Choose Us
+            {t.whyChooseUs.title}
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Combining technical excellence with reliable service delivery across all project phases.
+            {t.whyChooseUs.subtitle}
           </p>
         </div>
 
@@ -49,9 +52,7 @@ const WhyChooseUs = () => {
               <h3 className="font-heading font-bold text-xl text-primary mb-3">
                 {reason.title}
               </h3>
-              <p className="text-muted-foreground">
-                {reason.description}
-              </p>
+              <p className="text-muted-foreground">{reason.description}</p>
             </div>
           ))}
         </div>

@@ -1,33 +1,36 @@
 import { Card } from "@/components/ui/card";
+import { useLanguage } from "@/contexts/LanguageContext";
 import alRayyanHealthcare from "@/assets/al-rayyan-healthcare.png";
 import industrialZoneSubstation from "@/assets/industrial-zone-substation.png";
 import lusailCommercialTower from "@/assets/lusail-commercial-tower.png";
 import westBayFireProtection from "@/assets/west-bay-fire-protection.png";
 
 const Projects = () => {
+  const { t, isRTL } = useLanguage();
+
   const projects = [
     {
-      title: "Al Rayyan Healthcare Facility",
-      sector: "Healthcare",
-      description: "Complete MEP systems installation for 200-bed medical center",
+      title: t.projects.alRayyan.title,
+      sector: t.projects.alRayyan.sector,
+      description: t.projects.alRayyan.description,
       image: alRayyanHealthcare,
     },
     {
-      title: "Hamad Port",
-      sector: "Industrial",
-      description: "Sky light for the visitor's center",
+      title: t.projects.hamadPort.title,
+      sector: t.projects.hamadPort.sector,
+      description: t.projects.hamadPort.description,
       image: industrialZoneSubstation,
     },
     {
-      title: "Lusail Commercial Tower",
-      sector: "Commercial",
-      description: "HVAC and BMS integration for 40-story office building",
+      title: t.projects.lusail.title,
+      sector: t.projects.lusail.sector,
+      description: t.projects.lusail.description,
       image: lusailCommercialTower,
     },
     {
-      title: "West Bay Fire Protection",
-      sector: "Commercial",
-      description: "NFPA-compliant fire protection system for high-rise complex",
+      title: t.projects.westBay.title,
+      sector: t.projects.westBay.sector,
+      description: t.projects.westBay.description,
       image: westBayFireProtection,
     },
   ];
@@ -37,10 +40,10 @@ const Projects = () => {
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 animate-in fade-in slide-in-from-bottom duration-700">
           <h2 className="font-heading font-bold text-4xl md:text-5xl text-primary mb-4">
-            Selected Projects
+            {t.projects.title}
           </h2>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-            Delivering excellence across healthcare, industrial, and commercial sectors throughout Qatar.
+            {t.projects.subtitle}
           </p>
         </div>
 
@@ -58,7 +61,7 @@ const Projects = () => {
                   className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                   loading="lazy"
                 />
-                <div className="absolute top-3 right-3 bg-accent text-primary-foreground px-3 py-1 rounded-full text-sm font-semibold">
+                <div className={`absolute top-3 ${isRTL ? 'left-3' : 'right-3'} bg-accent text-primary-foreground px-3 py-1 rounded-full text-sm font-semibold`}>
                   {project.sector}
                 </div>
               </div>
