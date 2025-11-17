@@ -7,11 +7,15 @@ import Clients from "@/components/Clients";
 import WhyChooseUs from "@/components/WhyChooseUs";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
+import WelcomeOverlay from "@/components/WelcomeOverlay";
 import { ContainerScroll } from "@/components/ui/container-scroll-animation";
-import { InteractiveHoverButton } from "@/components/ui/interactive-hover-button";
 import hvacImage from "@/assets/hvac-outdoor-units.png";
+
 const Index = () => {
-  return <div className="min-h-screen">
+  return (
+    <>
+      <WelcomeOverlay />
+      <div className="min-h-screen">
       <Header />
       <main>
         <Hero />
@@ -34,6 +38,8 @@ const Index = () => {
         <Contact />
       </main>
       <Footer />
-    </div>;
+      </div>
+    </>
+  );
 };
 export default Index;
