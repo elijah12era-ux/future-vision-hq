@@ -56,23 +56,13 @@ const WelcomeOverlay = () => {
           preserveAspectRatio="xMidYMid meet"
           style={{ width: 'min(560px, 90vw)', height: 'auto', overflow: 'visible', display: 'block' }}
         >
-          {/* position all logo elements relative to center (300,80) */}
+          {/* Center the text */}
           <g id="logo" transform="translate(300,80)">
-            {/* Fan positioned left of center (-120,0) */}
-            <g id="fan" transform="translate(-120,0)">
-              <path d="M 0,-45 C 15,-45 28,-38 35,-25 C 42,-12 42,2 38,12 L 8,8 C 10,2 10,-8 5,-18 C 3,-22 1,-28 0,-35 Z" fill="#01C1B4"/>
-              <path d="M 45,0 C 45,15 38,28 25,35 C 12,42 -2,42 -12,38 L -8,8 C -2,10 8,10 18,5 C 22,3 28,1 35,0 Z" fill="#01C1B4" opacity="0.95"/>
-              <path d="M 0,45 C -15,45 -28,38 -35,25 C -42,12 -42,-2 -38,-12 L -8,-8 C -10,-2 -10,8 -5,18 C -3,22 -1,28 0,35 Z" fill="#01C1B4" opacity="0.96"/>
-              <path d="M -45,0 C -45,-15 -38,-28 -25,-35 C -12,-42 2,-42 12,-38 L 8,-8 C 2,-10 -8,-10 -18,-5 C -22,-3 -28,-1 -35,0 Z" fill="#01C1B4" opacity="0.97"/>
-              <circle cx="0" cy="0" r="11" fill="#01C1B4"/>
-            </g>
-
-            {/* Wording placed to the right of the fan (x: -120 -> +40 relative to logo center) */}
-            <g id="wording" transform="translate(40,0)" aria-hidden="true">
-              <text x="0" y="-6" fontFamily="Montserrat, Poppins, system-ui, sans-serif" fontSize="32" fontWeight="700" fill="#01C1B4" letterSpacing="0.5">
+            <g id="wording" transform="translate(0,0)" aria-hidden="true">
+              <text x="0" y="-6" textAnchor="middle" fontFamily="Montserrat, Poppins, system-ui, sans-serif" fontSize="32" fontWeight="700" fill="#01C1B4" letterSpacing="0.5">
                 Futuristic International
               </text>
-              <text x="0" y="18" fontFamily="Montserrat, Poppins, system-ui, sans-serif" fontSize="15" fontWeight="400" fill="#01C1B4" letterSpacing="1" opacity="0.92">
+              <text x="0" y="18" textAnchor="middle" fontFamily="Montserrat, Poppins, system-ui, sans-serif" fontSize="15" fontWeight="400" fill="#01C1B4" letterSpacing="1" opacity="0.92">
                 Power Within, Forge Future
               </text>
             </g>
@@ -81,43 +71,33 @@ const WelcomeOverlay = () => {
       </div>
 
       <style>{`
-        /* Ensure transforms on SVG groups use the expected box and origin coordinates */
         #logo-svg { overflow: visible; }
-        /* For animation rotate pivot we animate the fan group only.
-           Because the fan is inside logo->fan at (-120,0) relative to logo center,
-           we set transform-box and transform-origin on the fan group using its local center. */
-        #logo-svg #fan, #logo-svg #wording { transform-box: fill-box; -webkit-transform-box: fill-box; }
-
-        /* compute fan origin: fan center is its local (0,0) so transform-origin: 0px 0px */
-        #logo-svg #fan { transform-origin: 0px 0px; will-change: transform;
-          animation: fan-cw 2.5s cubic-bezier(.2,.9,.2,1) 0s forwards,
-                     fan-ccw 2.5s cubic-bezier(.2,.9,.2,1) 2.5s forwards;
-        }
-
-        /* wording emerges from fan center visually: start translated left into the fan and scaled */
-        #logo-svg #wording {
+        
+        #logo-svg #wording { 
+          transform-box: fill-box; 
+          -webkit-transform-box: fill-box;
+          transform-origin: center center;
           will-change: transform, opacity;
-          transform-origin: 0px 0px;
-          animation: wording-out 2.5s cubic-bezier(.2,.9,.2,1) 0s forwards,
-                     wording-in 2.5s cubic-bezier(.2,.9,.2,1) 2.5s forwards;
+          animation: text-in 2.5s cubic-bezier(.2,.9,.2,1) 0s forwards,
+                     text-out 2.5s cubic-bezier(.2,.9,.2,1) 2.5s forwards;
         }
 
-        /* Keyframes */
-        @keyframes fan-cw { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
-        @keyframes fan-ccw { from { transform: rotate(360deg); } to { transform: rotate(0deg); } }
-        @keyframes wording-out {
-          0%   { transform: translate(-120px, 0) scale(0.22); opacity: 0; }
-          55%  { transform: translate(-12px, 0) scale(0.95); opacity: 1; }
-          100% { transform: translate(0px, 0) scale(1); opacity: 1; }
+        @keyframes text-in {
+          0%   { transform: scale(0.85); opacity: 0; }
+          100% { transform: scale(1); opacity: 1; }
         }
-        @keyframes wording-in {
-          0%   { transform: translate(0px, 0) scale(1); opacity: 1; }
-          45%  { transform: translate(-12px, 0) scale(0.95); opacity: 1; }
-          100% { transform: translate(-120px, 0) scale(0.22); opacity: 0; }
+        
+        @keyframes text-out {
+          0%   { transform: scale(1); opacity: 1; }
+          100% { transform: scale(0.85); opacity: 0; }
         }
 
         @media (prefers-reduced-motion: reduce) {
-          #logo-svg #fan, #logo-svg #wording { animation: none !important; transform: none !important; opacity: 1 !important; }
+          #logo-svg #wording { 
+            animation: none !important; 
+            transform: none !important; 
+            opacity: 1 !important; 
+          }
         }
       `}</style>
     </>
