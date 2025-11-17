@@ -77,7 +77,7 @@ const Header = () => {
               variant="outline"
               size="sm"
               onClick={toggleLanguage}
-              className="flex items-center gap-2 border-white/20 text-white hover:bg-white/10"
+              className="flex items-center gap-2 bg-[hsl(212,74%,25%)] border-[hsl(212,74%,35%)] text-white hover:bg-[hsl(212,74%,30%)]"
             >
               <Languages size={16} />
               <span>{language === "en" ? "العربية" : "English"}</span>
@@ -99,7 +99,7 @@ const Header = () => {
               variant="outline"
               size="sm"
               onClick={toggleLanguage}
-              className="p-2 border-white/20 text-white hover:bg-white/10"
+              className="p-2 bg-[hsl(212,74%,25%)] border-[hsl(212,74%,35%)] text-white hover:bg-[hsl(212,74%,30%)]"
             >
               <Languages size={18} />
             </Button>
