@@ -49,8 +49,8 @@ const Header = () => {
           {/* Logo */}
           <a href="#home" className={`flex items-center ${isRTL ? 'space-x-reverse' : ''} space-x-1.5`}>
             <div className="h-8 w-8 md:h-10 md:w-10 bg-gradient-to-br from-accent to-accent-cyan rounded-lg flex items-center justify-center">
-              <span className="text-primary-foreground font-bold text-base md:text-xl">
-                {isRTL ? "أ" : "A"}
+              <span className="text-primary-foreground font-bold text-xs md:text-sm">
+                FI
               </span>
             </div>
             <span className="font-heading font-bold text-base md:text-xl text-white hidden sm:block">
