@@ -9,6 +9,8 @@ import qtf from "@/assets/clients/qtf.png";
 import hamadPort from "@/assets/clients/hamad-port.png";
 import dohaFestivalCity from "@/assets/clients/doha-festival-city.png";
 import ministryLogo from "@/assets/clients/ministry-logo.png";
+import globeUniforms from "@/assets/clients/globe-uniforms.png";
+import alRayyanSatellite from "@/assets/clients/al-rayyan-satellite.png";
 const Clients = () => {
   const {
     t,
@@ -26,7 +28,7 @@ const Clients = () => {
         </div>
 
         {/* Client Logos */}
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8 mb-16">
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 mb-16">
           {[
             { src: wholesomeOasis, alt: "Wholesome Oasis" },
             { src: brickStone, alt: "Brick Stone" },
@@ -38,10 +40,12 @@ const Clients = () => {
             { src: hamadPort, alt: "Hamad Port" },
             { src: dohaFestivalCity, alt: "Doha Festival City" },
             { src: ministryLogo, alt: "Ministry" },
+            { src: globeUniforms, alt: "Globe Uniforms" },
+            { src: alRayyanSatellite, alt: "Al Rayyan Satellite Channel" },
           ].map((client, i) => (
             <div 
               key={i} 
-              className="aspect-video bg-card rounded-lg border border-divider flex items-center justify-center p-6 hover:border-accent transition-all grayscale hover:grayscale-0 animate-lift animate-in fade-in duration-700" 
+              className="aspect-video bg-card rounded-lg border border-divider flex items-center justify-center p-6 hover:border-accent hover:shadow-lg transition-all animate-lift animate-in fade-in duration-700" 
               style={{ animationDelay: `${i * 100}ms` }}
             >
               <img 
