@@ -1,5 +1,14 @@
-import { Award, Shield, Target, Users } from "lucide-react";
 import { useLanguage } from "@/contexts/LanguageContext";
+import wholesomeOasis from "@/assets/clients/wholesome-oasis.png";
+import brickStone from "@/assets/clients/brick-stone.png";
+import qdSbg from "@/assets/clients/qd-sbg.png";
+import landmark from "@/assets/clients/landmark.png";
+import tawarMall from "@/assets/clients/tawar-mall.png";
+import ooredoo from "@/assets/clients/ooredoo.png";
+import qtf from "@/assets/clients/qtf.png";
+import hamadPort from "@/assets/clients/hamad-port.png";
+import dohaFestivalCity from "@/assets/clients/doha-festival-city.png";
+import ministryLogo from "@/assets/clients/ministry-logo.png";
 const Clients = () => {
   const {
     t,
@@ -16,17 +25,32 @@ const Clients = () => {
           </p>
         </div>
 
-        {/* Client Logos Placeholder */}
-        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-6 gap-8 mb-16">
-          {Array.from({
-          length: 6
-        }).map((_, i) => <div key={i} className="aspect-video bg-card rounded-lg border border-divider flex items-center justify-center hover:border-accent transition-all grayscale hover:grayscale-0 animate-lift animate-in fade-in duration-700" style={{
-          animationDelay: `${i * 100}ms`
-        }}>
-              <span className="text-muted-foreground font-semibold">
-                {isRTL ? `عميل ${i + 1}` : `Client ${i + 1}`}
-              </span>
-            </div>)}
+        {/* Client Logos */}
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8 mb-16">
+          {[
+            { src: wholesomeOasis, alt: "Wholesome Oasis" },
+            { src: brickStone, alt: "Brick Stone" },
+            { src: qdSbg, alt: "QD-SBG" },
+            { src: landmark, alt: "Landmark" },
+            { src: tawarMall, alt: "Tawar Mall" },
+            { src: ooredoo, alt: "Ooredoo" },
+            { src: qtf, alt: "Qatar Tennis Federation" },
+            { src: hamadPort, alt: "Hamad Port" },
+            { src: dohaFestivalCity, alt: "Doha Festival City" },
+            { src: ministryLogo, alt: "Ministry" },
+          ].map((client, i) => (
+            <div 
+              key={i} 
+              className="aspect-video bg-card rounded-lg border border-divider flex items-center justify-center p-6 hover:border-accent transition-all grayscale hover:grayscale-0 animate-lift animate-in fade-in duration-700" 
+              style={{ animationDelay: `${i * 100}ms` }}
+            >
+              <img 
+                src={client.src} 
+                alt={client.alt} 
+                className="w-full h-full object-contain"
+              />
+            </div>
+          ))}
         </div>
 
         {/* Certifications */}
