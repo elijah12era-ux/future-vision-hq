@@ -30,30 +30,7 @@ const Clients = () => {
         </div>
 
         {/* Certifications */}
-        <div className="grid md:grid-cols-4 gap-6 max-w-5xl mx-auto">
-          {[{
-          icon: Shield,
-          label: isRTL ? "معتمد من NFPA" : "NFPA Certified"
-        }, {
-          icon: Award,
-          label: "ISO 9001:2015"
-        }, {
-          icon: Target,
-          label: isRTL ? "الامتثال لـ QHSE" : "QHSE Compliance"
-        }, {
-          icon: Users,
-          label: isRTL ? "محترفون مدربون" : "Trained Professionals"
-        }].map((cert, index) => (
-            <div
-              key={index}
-              className="bg-card rounded-lg p-6 border border-divider text-center animate-in fade-in slide-in-from-bottom duration-700"
-              style={{ animationDelay: `${index * 100}ms` }}
-            >
-              <cert.icon className="w-12 h-12 mx-auto mb-4 text-accent" />
-              <p className="font-semibold text-foreground">{cert.label}</p>
-            </div>
-          ))}
-        </div>
+        
       </div>
     </section>;
 };
