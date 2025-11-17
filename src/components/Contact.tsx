@@ -14,6 +14,7 @@ import { toast } from "sonner";
 import { supabase } from "@/integrations/supabase/client";
 import { z } from "zod";
 import { useLanguage } from "@/contexts/LanguageContext";
+import Map from "@/components/Map";
 
 const contactSchema = z.object({
   name: z.string().trim().min(1, "Name is required").max(100, "Name must be less than 100 characters"),
@@ -231,9 +232,7 @@ const Contact = () => {
               </div>
             </div>
 
-            <div className="w-full h-64 bg-muted rounded-xl flex items-center justify-center border border-divider">
-              <span className="text-muted-foreground">{isRTL ? "خريطة الموقع" : "Map Location"}</span>
-            </div>
+            <Map />
           </div>
         </div>
       </div>

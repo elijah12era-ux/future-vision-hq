@@ -43,7 +43,16 @@ const Clients = () => {
         }, {
           icon: Users,
           label: isRTL ? "محترفون مدربون" : "Trained Professionals"
-        }].map((cert, index) => {})}
+        }].map((cert, index) => (
+            <div
+              key={index}
+              className="bg-card rounded-lg p-6 border border-divider text-center animate-in fade-in slide-in-from-bottom duration-700"
+              style={{ animationDelay: `${index * 100}ms` }}
+            >
+              <cert.icon className="w-12 h-12 mx-auto mb-4 text-accent" />
+              <p className="font-semibold text-foreground">{cert.label}</p>
+            </div>
+          ))}
         </div>
       </div>
     </section>;
