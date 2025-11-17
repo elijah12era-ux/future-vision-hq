@@ -76,9 +76,9 @@ export const translations = {
       title: "Selected Projects",
       subtitle: "Delivering excellence across healthcare, industrial, and commercial sectors throughout Qatar",
       alRayyan: {
-        title: "Al Rayyan Healthcare Facility",
+        title: "Al Saif Gallery",
         sector: "Healthcare",
-        description: "Complete MEP systems installation for 200-bed medical center",
+        description: "MEP and HVAC integration",
       },
       hamadPort: {
         title: "Hamad Port",
@@ -218,9 +218,9 @@ export const translations = {
       title: "مشاريع مختارة",
       subtitle: "تقديم التميز عبر القطاعات الصحية والصناعية والتجارية في جميع أنحاء قطر",
       alRayyan: {
-        title: "منشأة الرعاية الصحية بالريان",
+        title: "معرض المصيف",
         sector: "الرعاية الصحية",
-        description: "تركيب كامل لأنظمة MEP لمركز طبي بسعة 200 سرير",
+        description: "تكامل أنظمة MEP والتكييف",
       },
       hamadPort: {
         title: "ميناء حمد",
