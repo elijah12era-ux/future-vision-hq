@@ -15,14 +15,14 @@ export const translations = {
       scroll: "Scroll to explore",
     },
     about: {
-      title: "About Akeed Trading & Contracting",
-      description: "With over a decade of experience in Qatar's construction industry, Akeed Trading & Contracting has established itself as a trusted partner for comprehensive MEP solutions. We specialize in delivering high-quality mechanical, electrical, and plumbing systems that meet international standards and exceed client expectations.",
-      yearsExperience: "15+ Years",
+      title: "About Futuristic International",
+      description: "With over a decade of experience in Qatar's construction industry, Futuristic International has established itself as a trusted partner for comprehensive MEP solutions. We specialize in delivering high-quality mechanical, electrical, and plumbing systems that meet international standards and exceed client expectations.",
+      yearsExperience: "12+ Years",
       yearsDesc: "Industry Experience",
-      projectsCompleted: "200+",
+      projectsCompleted: "100+",
       projectsDesc: "Projects Completed",
-      certifiedEngineers: "50+",
-      certifiedDesc: "Certified Engineers",
+      certifiedEngineers: "75+",
+      certifiedDesc: "Satisfied Customers",
     },
     services: {
       title: "Our Services",
@@ -53,7 +53,7 @@ export const translations = {
       },
     },
     whyChooseUs: {
-      title: "Why Choose Akeed?",
+      title: "Why Choose Futuristic International?",
       subtitle: "We deliver excellence through expertise, quality, and commitment",
       licensed: {
         title: "Licensed & Certified",
@@ -133,7 +133,7 @@ export const translations = {
       },
     },
     footer: {
-      company: "Akeed Trading & Contracting",
+      company: "Futuristic International",
       description: "Your trusted partner for comprehensive MEP solutions in Qatar",
       quickLinks: "Quick Links",
       services: "Services",
@@ -157,14 +157,14 @@ export const translations = {
       scroll: "اكتشف المزيد",
     },
     about: {
-      title: "عن شركة أكيد للتجارة والمقاولات",
-      description: "مع أكثر من عقد من الخبرة في صناعة البناء في قطر، أثبتت شركة أكيد للتجارة والمقاولات نفسها كشريك موثوق للحلول الشاملة للأنظمة الكهروميكانيكية. نحن متخصصون في تقديم أنظمة ميكانيكية وكهربائية وصحية عالية الجودة تلبي المعايير الدولية وتتجاوز توقعات العملاء.",
-      yearsExperience: "+15 سنة",
+      title: "عن Futuristic International",
+      description: "مع أكثر من عقد من الخبرة في صناعة البناء في قطر، أثبتت Futuristic International نفسها كشريك موثوق للحلول الشاملة للأنظمة الكهروميكانيكية. نحن متخصصون في تقديم أنظمة ميكانيكية وكهربائية وصحية عالية الجودة تلبي المعايير الدولية وتتجاوز توقعات العملاء.",
+      yearsExperience: "+12 سنة",
       yearsDesc: "من الخبرة",
-      projectsCompleted: "+200",
+      projectsCompleted: "+100",
       projectsDesc: "مشروع منجز",
-      certifiedEngineers: "+50",
-      certifiedDesc: "مهندس معتمد",
+      certifiedEngineers: "+75",
+      certifiedDesc: "عميل راضٍ",
     },
     services: {
       title: "خدماتنا",
@@ -195,7 +195,7 @@ export const translations = {
       },
     },
     whyChooseUs: {
-      title: "لماذا تختار أكيد؟",
+      title: "لماذا تختار Futuristic International؟",
       subtitle: "نقدم التميز من خلال الخبرة والجودة والالتزام",
       licensed: {
         title: "مرخصة ومعتمدة",
@@ -275,7 +275,7 @@ export const translations = {
       },
     },
     footer: {
-      company: "أكيد للتجارة والمقاولات",
+      company: "Futuristic International",
       description: "شريكك الموثوق للحلول الشاملة للأنظمة الكهروميكانيكية في قطر",
       quickLinks: "روابط سريعة",
       services: "الخدمات",
