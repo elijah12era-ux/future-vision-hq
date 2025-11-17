@@ -206,7 +206,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold text-foreground mb-1">{t.contact.info.phone}</h4>
-                    <p className="text-muted-foreground">+974 XXXX XXXX</p>
+                    <p className="text-muted-foreground">+974 7734 7300</p>
                   </div>
                 </div>
 
@@ -216,7 +216,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <h4 className="font-semibold text-foreground mb-1">{t.contact.info.email}</h4>
-                    <p className="text-muted-foreground">info@akeed.qa</p>
+                    <p className="text-muted-foreground">info@futuristicint.com</p>
                   </div>
                 </div>
 
