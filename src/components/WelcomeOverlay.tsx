@@ -13,9 +13,9 @@ const WelcomeOverlay = () => {
       return;
     }
 
-    // Total animation duration: 3 seconds
-    const TOTAL_MS = 3000;
-    const FADE_MS = 350;
+    // Total animation duration: 5 seconds
+    const TOTAL_MS = 5000;
+    const FADE_MS = 600;
 
     const timer = setTimeout(() => {
       setIsVisible(false);
@@ -23,7 +23,7 @@ const WelcomeOverlay = () => {
       // Remove from DOM after fade completes
       setTimeout(() => {
         setShouldRender(false);
-      }, FADE_MS + 50);
+      }, FADE_MS + 60);
     }, TOTAL_MS);
 
     return () => clearTimeout(timer);
@@ -36,10 +36,13 @@ const WelcomeOverlay = () => {
       <div
         id="welcome-overlay"
         aria-hidden={!isVisible}
-        className="fixed inset-0 grid place-items-center z-[9999] transition-opacity duration-[350ms] ease-out"
+        className="fixed inset-0 grid place-items-center z-[9999]"
         style={{
           background: '#0C274A',
           opacity: isVisible ? 1 : 0,
+          transform: isVisible ? 'translateY(0px) scale(1)' : 'translateY(-8px) scale(0.985)',
+          transition: 'opacity 600ms cubic-bezier(.2,.9,.2,1), transform 600ms cubic-bezier(.2,.9,.2,1)',
+          pointerEvents: isVisible ? 'auto' : 'none',
         }}
       >
         <svg
@@ -50,6 +53,7 @@ const WelcomeOverlay = () => {
           role="img"
           aria-label="Futuristic International logo"
           className="block mx-auto max-w-[90vw]"
+          style={{ overflow: 'visible' }}
         >
           {/* Fan icon - 4 blade propeller centered at (80, 80) */}
           <g id="fan" transform="translate(80, 80)">
@@ -84,17 +88,22 @@ const WelcomeOverlay = () => {
       <style>{`
         /* Fan center is at (80px, 80px) in the SVG coordinate system */
         #logo-svg #fan {
+          transform-box: fill-box;
+          -webkit-transform-box: fill-box;
           transform-origin: 80px 80px;
           will-change: transform;
-          animation: fan-cw 1.5s cubic-bezier(.2,.9,.2,1) 0s forwards,
-                     fan-ccw 1.5s cubic-bezier(.2,.9,.2,1) 1.5s forwards;
+          animation: fan-cw 2.5s cubic-bezier(.2,.9,.2,1) 0s forwards,
+                     fan-ccw 2.5s cubic-bezier(.2,.9,.2,1) 2.5s forwards;
         }
 
         /* Wording starts tucked in the fan center */
         #logo-svg #wording {
+          transform-box: fill-box;
+          -webkit-transform-box: fill-box;
+          transform-origin: 80px 80px;
           will-change: transform, opacity;
-          animation: wording-out 1.5s cubic-bezier(.2,.9,.2,1) 0s forwards,
-                     wording-in 1.5s cubic-bezier(.2,.9,.2,1) 1.5s forwards;
+          animation: wording-out 2.5s cubic-bezier(.2,.9,.2,1) 0s forwards,
+                     wording-in 2.5s cubic-bezier(.2,.9,.2,1) 2.5s forwards;
         }
 
         /* Fan rotation animations */
@@ -110,15 +119,15 @@ const WelcomeOverlay = () => {
 
         /* Wording emergence and retraction */
         @keyframes wording-out {
-          0% { transform: translate(-100px, 0) scale(0.25); opacity: 0; }
-          60% { transform: translate(-10px, 0) scale(0.95); opacity: 1; }
+          0% { transform: translate(-120px, 0) scale(0.22); opacity: 0; }
+          55% { transform: translate(-12px, 0) scale(0.95); opacity: 1; }
           100% { transform: translate(0px, 0) scale(1); opacity: 1; }
         }
 
         @keyframes wording-in {
           0% { transform: translate(0px, 0) scale(1); opacity: 1; }
-          40% { transform: translate(-10px, 0) scale(0.95); opacity: 1; }
-          100% { transform: translate(-100px, 0) scale(0.25); opacity: 0; }
+          45% { transform: translate(-12px, 0) scale(0.95); opacity: 1; }
+          100% { transform: translate(-120px, 0) scale(0.22); opacity: 0; }
         }
 
         /* Respect reduced motion preference */
