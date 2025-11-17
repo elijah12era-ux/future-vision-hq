@@ -77,7 +77,7 @@ export const translations = {
       subtitle: "Delivering excellence across healthcare, industrial, and commercial sectors throughout Qatar",
       alRayyan: {
         title: "Al Saif Gallery",
-        sector: "Healthcare",
+        sector: "Showrooms",
         description: "MEP and HVAC integration",
       },
       hamadPort: {
@@ -219,7 +219,7 @@ export const translations = {
       subtitle: "تقديم التميز عبر القطاعات الصحية والصناعية والتجارية في جميع أنحاء قطر",
       alRayyan: {
         title: "معرض المصيف",
-        sector: "الرعاية الصحية",
+        sector: "صالات عرض",
         description: "تكامل أنظمة MEP والتكييف",
       },
       hamadPort: {
