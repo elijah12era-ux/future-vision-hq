@@ -9,7 +9,7 @@ import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 import WelcomeOverlay from "@/components/WelcomeOverlay";
 import { ContainerScroll } from "@/components/ui/container-scroll-animation";
-import hvacImage from "@/assets/hvac-outdoor-units.png";
+import qatarCityscape from "@/assets/qatar-cityscape.png";
 
 const Index = () => {
   return (
@@ -27,7 +27,7 @@ const Index = () => {
                 Discover how we transform complex engineering challenges into elegant solutions
               </p>
             </>}>
-          <img src={hvacImage} alt="HVAC Outdoor Units Installation" className="mx-auto rounded-2xl object-cover h-full w-full object-center" />
+          <img src={qatarCityscape} alt="Qatar Cityscape" className="mx-auto rounded-2xl object-cover h-full w-full object-center" />
         </ContainerScroll>
         <About />
         <Services />
