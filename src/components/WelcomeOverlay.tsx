@@ -6,7 +6,6 @@ const WelcomeOverlay = () => {
 
   useEffect(() => {
     const prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    
     if (prefersReduced) {
       setShouldRender(false);
       return;
@@ -43,10 +42,12 @@ const WelcomeOverlay = () => {
           zIndex: 9999,
           opacity: isVisible ? 1 : 0,
           transform: isVisible ? 'translateY(0px) scale(1)' : 'translateY(-8px) scale(0.985)',
-          transition: 'opacity 600ms cubic-bezier(.2,.9,.2,1), transform 600ms cubic-bezier(.2,.9,.2,1)',
+          transition: `opacity 600ms cubic-bezier(.2,.9,.2,1), transform 600ms cubic-bezier(.2,.9,.2,1)`,
           pointerEvents: isVisible ? 'auto' : 'none',
         }}
       >
+        {/* This SVG centers the whole logo by using a parent group 'logo' placed at the SVG center.
+            Fan is positioned relative to the logo center so the combined logo always centers in viewport. */}
         <svg
           id="logo-svg"
           viewBox="0 0 600 160"
@@ -55,7 +56,7 @@ const WelcomeOverlay = () => {
           preserveAspectRatio="xMidYMid meet"
           style={{ width: 'min(560px, 90vw)', height: 'auto', overflow: 'visible', display: 'block' }}
         >
-          {/* Position all logo elements relative to center (300,80) for proper centering */}
+          {/* position all logo elements relative to center (300,80) */}
           <g id="logo" transform="translate(300,80)">
             {/* Fan positioned left of center (-120,0) */}
             <g id="fan" transform="translate(-120,0)">
@@ -66,8 +67,8 @@ const WelcomeOverlay = () => {
               <circle cx="0" cy="0" r="11" fill="#01C1B4"/>
             </g>
 
-            {/* Wording placed to the right of the fan */}
-            <g id="wording" transform="translate(40,0)">
+            {/* Wording placed to the right of the fan (x: -120 -> +40 relative to logo center) */}
+            <g id="wording" transform="translate(40,0)" aria-hidden="true">
               <text x="0" y="-6" fontFamily="Montserrat, Poppins, system-ui, sans-serif" fontSize="32" fontWeight="700" fill="#01C1B4" letterSpacing="0.5">
                 Futuristic International
               </text>
@@ -80,21 +81,20 @@ const WelcomeOverlay = () => {
       </div>
 
       <style>{`
+        /* Ensure transforms on SVG groups use the expected box and origin coordinates */
         #logo-svg { overflow: visible; }
-        
-        #logo-svg #fan, #logo-svg #wording { 
-          transform-box: fill-box; 
-          -webkit-transform-box: fill-box; 
-        }
+        /* For animation rotate pivot we animate the fan group only.
+           Because the fan is inside logo->fan at (-120,0) relative to logo center,
+           we set transform-box and transform-origin on the fan group using its local center. */
+        #logo-svg #fan, #logo-svg #wording { transform-box: fill-box; -webkit-transform-box: fill-box; }
 
-        /* Fan center is at its local (0,0) */
-        #logo-svg #fan { 
-          transform-origin: 0px 0px; 
-          will-change: transform;
+        /* compute fan origin: fan center is its local (0,0) so transform-origin: 0px 0px */
+        #logo-svg #fan { transform-origin: 0px 0px; will-change: transform;
           animation: fan-cw 2.5s cubic-bezier(.2,.9,.2,1) 0s forwards,
                      fan-ccw 2.5s cubic-bezier(.2,.9,.2,1) 2.5s forwards;
         }
 
+        /* wording emerges from fan center visually: start translated left into the fan and scaled */
         #logo-svg #wording {
           will-change: transform, opacity;
           transform-origin: 0px 0px;
@@ -102,22 +102,14 @@ const WelcomeOverlay = () => {
                      wording-in 2.5s cubic-bezier(.2,.9,.2,1) 2.5s forwards;
         }
 
-        @keyframes fan-cw { 
-          from { transform: rotate(0deg); } 
-          to { transform: rotate(360deg); } 
-        }
-        
-        @keyframes fan-ccw { 
-          from { transform: rotate(360deg); } 
-          to { transform: rotate(0deg); } 
-        }
-        
+        /* Keyframes */
+        @keyframes fan-cw { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+        @keyframes fan-ccw { from { transform: rotate(360deg); } to { transform: rotate(0deg); } }
         @keyframes wording-out {
           0%   { transform: translate(-120px, 0) scale(0.22); opacity: 0; }
           55%  { transform: translate(-12px, 0) scale(0.95); opacity: 1; }
           100% { transform: translate(0px, 0) scale(1); opacity: 1; }
         }
-        
         @keyframes wording-in {
           0%   { transform: translate(0px, 0) scale(1); opacity: 1; }
           45%  { transform: translate(-12px, 0) scale(0.95); opacity: 1; }
@@ -125,11 +117,7 @@ const WelcomeOverlay = () => {
         }
 
         @media (prefers-reduced-motion: reduce) {
-          #logo-svg #fan, #logo-svg #wording { 
-            animation: none !important; 
-            transform: none !important; 
-            opacity: 1 !important; 
-          }
+          #logo-svg #fan, #logo-svg #wording { animation: none !important; transform: none !important; opacity: 1 !important; }
         }
       `}</style>
     </>
