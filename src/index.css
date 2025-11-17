@@ -91,3 +91,8 @@ All colors MUST be HSL.
     background: var(--button-gradient);
   }
 }
+
+/* Hide Lovable badge */
+#lovable-badge {
+  display: none !important;
+}
