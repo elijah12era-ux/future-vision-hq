@@ -45,7 +45,7 @@ const Header = () => {
               </span>
             </div>
             <span className="font-heading font-bold text-base md:text-xl text-primary hidden sm:block">
-              {isRTL ? "أكيد للتجارة" : "Akeed Trading"}
+              Futuristic International
             </span>
           </a>
 
@@ -63,7 +63,7 @@ const Header = () => {
           </nav>
 
           {/* Language Switcher & CTA */}
-          <div className={`hidden lg:flex items-center ${isRTL ? 'space-x-reverse' : ''} space-x-3`}>
+          <div className={`hidden md:flex items-center ${isRTL ? 'space-x-reverse' : ''} space-x-3`}>
             <Button
               variant="outline"
               size="sm"
